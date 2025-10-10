@@ -77,7 +77,15 @@ public class calculadoraController {
     	}
     	double resultado = numero1+numero2;
     	// informa o resultado na label com o setText
-    	btnResultado.setText(String.valueOf(resultado)); // retorna o valor de double para string
+    	String parOuImpar;
+    	if(resultado % 2 == 0) {
+    		parOuImpar="É Par.";
+    	} else {
+    		parOuImpar="É Impar";
+    	}
+    	
+    	btnResultado.setText("Resultado: "+String.valueOf(resultado)+parOuImpar); // retorna o valor de double para string
+    	
     }
     
     @FXML
@@ -87,8 +95,14 @@ public class calculadoraController {
     	txtn1.setText(String.valueOf(numero1));
     	txtn2.setText(String.valueOf(numero2));
     	double resultado = numero1-numero2;
+    	String parOuImpar;
+    	if(resultado % 2==0) {
+    		parOuImpar = "É Par.";
+    	} else {
+    		parOuImpar = "É Impar.";
+    	}
     	
-    	btnResultado.setText(String.valueOf(resultado));
+    	btnResultado.setText("Resultado: "+String.valueOf(resultado)+parOuImpar);
     }
     
     @FXML
@@ -98,8 +112,14 @@ public class calculadoraController {
     	txtn1.setText(String.valueOf(numero1));
     	txtn2.setText(String.valueOf(numero2));
     	double resultado = numero1*numero2;
+    	String parOuImpar;
+    	if(resultado % 2 == 0) {
+    		parOuImpar ="É Par.";
+    	} else {
+    		parOuImpar ="É Impar.";
+    	}
     	
-    	btnResultado.setText(String.valueOf(resultado));
+    	btnResultado.setText("Resultado: "+String.valueOf(resultado)+parOuImpar);
     }
     
     @FXML
@@ -109,8 +129,14 @@ public class calculadoraController {
     	txtn1.setText(String.valueOf(numero1));
     	txtn2.setText(String.valueOf(numero2));
     	double resultado = numero1/numero2;
+    	String parOuImpar;
+    	if(resultado % 2 == 0) {
+    		parOuImpar = "É Par.";
+    	} else {
+    		parOuImpar = "É Impar.";
+    	}
     	
-    	btnResultado.setText(String.valueOf(resultado));
+    	btnResultado.setText("Resultado: "+String.valueOf(resultado)+parOuImpar);
     }
     
     //metodo de converter string para double
