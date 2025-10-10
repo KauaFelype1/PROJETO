@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="600.0" prefWidth="360.0" style="-fx-background-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.loginContoller">
+   <children>
+      <ImageView fitHeight="600.0" fitWidth="360.0" layoutY="-1.0" pickOnBounds="true">
+         <image>
+            <Image url="@../../../../../Pictures/app/premium_photo-1686729237226-0f2edb1e8970.jpg" />
+         </image>
+      </ImageView>
+      <TextField fx:id="txtUsuario" layoutX="29.0" layoutY="171.0" prefHeight="26.0" prefWidth="310.0" promptText="Informe seu usuário" />
+      <PasswordField fx:id="txtSenha" layoutX="29.0" layoutY="242.0" prefHeight="26.0" prefWidth="310.0" promptText="Informe sua senha" />
+      <Button layoutX="29.0" layoutY="303.0" mnemonicParsing="false" onAction="#voltar" prefHeight="26.0" prefWidth="58.0" text="Voltar" />
+      <Button layoutX="270.0" layoutY="303.0" mnemonicParsing="false" onAction="#confirmar" text="Confirmar" />
+      <Label layoutX="29.0" layoutY="144.0" prefHeight="26.0" prefWidth="94.0" text="Usuário">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="29.0" layoutY="215.0" prefHeight="26.0" prefWidth="94.0" text="Senha">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+      <Label layoutX="145.0" layoutY="64.0" prefHeight="39.0" prefWidth="69.0" text="APP" textFill="#00faff">
+         <font>
+            <Font name="System Bold" size="27.0" />
+         </font>
+      </Label>
+      <Label layoutX="145.0" layoutY="91.0" prefHeight="39.0" prefWidth="69.0" text="SHOW" textFill="#00faff">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
