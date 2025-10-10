@@ -23,6 +23,7 @@ public class calcularIMCController {
     @FXML
     private TextField txtPeso;
     
+    @FXML
     public void CalcularIMC() {
     	Double altura;
     	Double peso;
@@ -43,6 +44,20 @@ public class calcularIMCController {
     	txtNome.setOnAction(e->{txtAltura.requestFocus();});
     	txtAltura.setOnAction(e->{txtPeso.requestFocus();});
     	txtPeso.setOnAction(e->{CalcularIMC();});
+    	
+    	
+    	
+    	txtAltura.textProperty().addListener(
+    	    	(observable, oldValue, newValue)->{
+    	    	txtAltura.setText(newValue.replaceAll("[^\\d.]",""));
+    	    	});
+    	    	
+    	    	txtPeso.textProperty().addListener(
+    	    	(observable, oldValue, newValue)->{
+    	    	txtPeso.setText(newValue.replaceAll("[^\\d.]",""));
+    	    	});
+    	
+    	
     }
     
 }
