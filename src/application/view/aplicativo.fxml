@@ -4,10 +4,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-
 <AnchorPane fx:id="conteudoPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="360.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="application.view.aplicativoController">
    <children>
       <Button layoutX="32.0" layoutY="86.0" mnemonicParsing="false" onAction="#abrirCalculadora" prefHeight="38.0" prefWidth="302.0" text="CALCULADORA">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
+      <Button fx:id="btncalculadoraIMC" layoutX="35.0" layoutY="188.0" mnemonicParsing="false" onAction="#abrirCalculadoraIMC" prefHeight="40.0" prefWidth="302.0" text="CALCULADORA IMC">
          <font>
             <Font name="System Bold" size="18.0" />
          </font>
