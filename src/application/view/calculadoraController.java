@@ -140,7 +140,7 @@ public class calculadoraController {
     }
     
     //metodo de converter string para double
-    private static double StrToDbl(String numero) {
+    public static double StrToDbl(String numero) {
     	try {
     		return Double.valueOf(numero);
     	} catch(Exception e) {

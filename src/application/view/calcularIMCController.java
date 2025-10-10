@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import application.view.calculadoraController;
 
 public class calcularIMCController {
 
@@ -28,14 +29,21 @@ public class calcularIMCController {
     	String nome;
     	Double resultado;
     	
-    	nome = String.valueOf(txtNome.getText());
-    	altura = Double.valueOf(txtAltura.getText());
+    	nome = txtNome.getText();
+    	altura = calculadoraController.StrToDbl(txtAltura.getText());
     	peso = Double.valueOf(txtPeso.getText());
     	resultado = peso/(altura*altura);
     	
     	lblResultado.setText("Resultado: "+String.valueOf(resultado));
-    	
     }
-
+    
+    //Código para quando o enter for precionado a label passar automaticamente
+    @FXML
+    private void initialize() {
+    	txtNome.setOnAction(e->{txtAltura.requestFocus();});
+    	txtAltura.setOnAction(e->{txtPeso.requestFocus();});
+    	txtPeso.setOnAction(e->{CalcularIMC();});
+    }
+    
 }
 
