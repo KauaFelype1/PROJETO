@@ -49,12 +49,12 @@ public class calculadoraController {
     	//ao digitar dentro do text field ele vai trocar a letra por uma informação
     	txtn1.textProperty().addListener(
     	(observable, oldValue, newValue)->{
-    	txtn1.setText(newValue.replaceAll("[^\\d]",""));
+    	txtn1.setText(newValue.replaceAll("[^\\d.]",""));
     	});
     	
     	txtn2.textProperty().addListener(
     	(observable, oldValue, newValue)->{
-    	txtn2.setText(newValue.replaceAll("[^\\d]",""));
+    	txtn2.setText(newValue.replaceAll("[^\\d.]",""));
     	});
     	
     }
