@@ -15,7 +15,7 @@
       <Label layoutX="83.0" layoutY="198.0" text="Peso" />
       <Label layoutX="80.0" layoutY="139.0" text="Altura" />
       <Button fx:id="btnCalcular" layoutX="80.0" layoutY="287.0" mnemonicParsing="false" onAction="#CalcularIMC" prefHeight="26.0" prefWidth="220.0" text="Calcular" />
-      <Label fx:id="lblResultado" layoutX="36.0" layoutY="398.0" text="Resultado:">
+      <Label fx:id="lblResultado" layoutY="352.0" prefHeight="246.0" prefWidth="360.0" text="Resultado:" wrapText="true">
          <font>
             <Font name="System Bold" size="20.0" />
          </font>
