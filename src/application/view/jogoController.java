@@ -1,5 +1,6 @@
 package application.view;
 
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.Random;
@@ -8,6 +9,7 @@ import javafx.animation.AnimationTimer;
 import javafx.fxml.FXML;
 import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.paint.Color;
 
@@ -26,8 +28,18 @@ public class jogoController {
     private Random random = new Random();
     private boolean esquerda,direita;
     
+    private Image imagemPlayer;
+    private Image imagemObstaculo;
+    
+    
     @FXML
     public void initialize() {
+    	InputStream playerStream=getClass().getResourceAsStream("f1_azul.png");
+    	InputStream obstaculosStream=getClass().getResourceAsStream("f1_vermelho.png");
+    	imagemPlayer= new Image(playerStream);
+    	imagemObstaculo= new Image(obstaculosStream);
+    	
+    	
     	// iniciar com o foco no jogo
     	canva.setFocusTraversable(true);
     	canva.requestFocus();
@@ -67,15 +79,15 @@ public class jogoController {
     }
     
     private void desenhar(GraphicsContext gc) {
-    	gc.setFill(Color.LIGHTSKYBLUE);
+    	//PLANO DE FUNDO
+    	gc.setFill(Color.GRAY);
     	gc.fillRect(0, 0, larguraTela, alturaTela);
     	//
-    	gc.setFill(Color.RED);
-    	gc.fillOval(playerX-raio, playerY-raio, raio*2, raio*2);
+    	gc.drawImage(imagemPlayer, playerX-raio, playerY-raio, raio*4, raio*4);
     	//
-    	gc.setFill(Color.DARKGRAY);
+    	//gc.setFill(Color.DARKGRAY);
     	for(Obstaculo obs: obstaculos) {
-    		gc.fillRect(obs.x, obs.y, obs.largura, obs.altura);
+        	gc.drawImage(imagemObstaculo, obs.x, obs.y, obs.largura, obs.altura);
     	}
     	
     	gc.setFill(Color.BLACK);
