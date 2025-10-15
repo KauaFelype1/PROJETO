@@ -35,9 +35,12 @@ public class jogoTiroController {
     
     @FXML
     public void initialize() {
-        imagemPlayer = new Image(getClass().getResourceAsStream("nave.png"));
-        imagemObstaculo = new Image(getClass().getResourceAsStream("neon.PNG"));
+        //imagemPlayer = new Image(getClass().getResourceAsStream("nave.png"));
+        //imagemObstaculo = new Image(getClass().getResourceAsStream("neon.PNG"));
         //imagemObstaculo = new Image(getClass().getResourceAsStream("nav_et2.png"));
+    	//TESTES IMAGENS
+        imagemPlayer = new Image(getClass().getResourceAsStream("Frajola.png"));
+        imagemObstaculo = new Image(getClass().getResourceAsStream("Helo.png"));
         
 
         canva.setFocusTraversable(true);
@@ -143,13 +146,14 @@ public class jogoTiroController {
             gc.fillOval(estrelaX, estrelaY, 2, 2);
         }
 
-        gc.drawImage(imagemPlayer, playerX - raio, playerY - raio, raio * 2, raio * 2);
+        gc.drawImage(imagemPlayer, playerX - raio, playerY - raio, raio * 4, raio * 4);
 
         for (Obstaculo obs : obstaculos) {
             gc.drawImage(imagemObstaculo, obs.x, obs.y, obs.largura, obs.altura);
         }
 
-        gc.setFill(Color.YELLOW);
+        //YELLOW : ORIGINAL
+        gc.setFill(Color.BROWN);
         for (Tiro tiro : tiros) {
             gc.fillRect(tiro.x, tiro.y, tiro.largura, tiro.altura);
         }

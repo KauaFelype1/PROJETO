@@ -27,6 +27,7 @@ public class jogoController {
     private ArrayList<Obstaculo> obstaculos= new ArrayList();
     private Random random = new Random();
     private boolean esquerda,direita;
+    boolean turbo;
     
     private Image imagemPlayer;
     private Image imagemObstaculo;
@@ -51,16 +52,21 @@ public class jogoController {
     	canva.setOnKeyPressed(e->{
     		if(e.getCode()==KeyCode.LEFT) { esquerda=true;}
     		if(e.getCode()==KeyCode.RIGHT) { direita=true;}
+    		if(e.getCode()==KeyCode.SPACE) { turbo=true;}
     	});
     	
     	canva.setOnKeyReleased(e->{
     		if(e.getCode()==KeyCode.LEFT) { esquerda=false;}
     		if(e.getCode()==KeyCode.RIGHT) { direita=false;}
+    		if(e.getCode()==KeyCode.SPACE) { turbo=false;}
+
     	});
     	
 		AnimationTimer timer=new AnimationTimer() {
 			long ultimoSpaw=0;
 			long intervaloSpaw=1_000_000_000;
+			
+			
 			
 			@Override
 			public void handle(long now) {
@@ -100,6 +106,11 @@ public class jogoController {
     	if(direita && playerX+raio<larguraTela) {playerX+=5;}
     	
     	double velocidade=4;
+    	if(turbo==false) {
+    		velocidade=4;
+    	} else {
+    		velocidade=12;
+    	}
     	
     	Iterator<Obstaculo> it = obstaculos.iterator();
     	
@@ -128,6 +139,7 @@ public class jogoController {
     		}
     		
     	}
+    	 
     	
     }
     
@@ -141,7 +153,6 @@ public class jogoController {
     		this.y=y;
     	}
     }
-    
     
 }
 
