@@ -57,9 +57,22 @@ public class calcularMediaController {
     	n4 = calculadoraController.StrToDbl(lbln4.getText());
     	media = (n1+n2+n3+n4)/4;
     	
-    	lblResultado.setText("Resultado: "+media);
+    	lblResultado.setText("Resultado: "+media+ " Você está "+avaliacao(media));
     	
     	
+    }
+    
+    
+    private String avaliacao(double media) {
+    	if(media <=4) {
+    		return "Reprovado";
+    	} else if(media>4 && media<7) {
+    		return "Recuperação";
+    	} else if(media>=7) {
+    		return "Aprovado";
+    	} else {
+    		return "";
+    	}	
     }
     	
 
