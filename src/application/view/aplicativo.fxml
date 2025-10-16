@@ -21,5 +21,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <Button fx:id="btnCalculadoraMedia" layoutX="37.0" layoutY="371.0" mnemonicParsing="false" onAction="#abrirCalculadoraMedia" prefHeight="40.0" prefWidth="302.0" text="CALCULADORA MÉDIA">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

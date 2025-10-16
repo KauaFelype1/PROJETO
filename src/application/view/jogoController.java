@@ -29,6 +29,7 @@ public class jogoController {
     private boolean esquerda,direita;
     boolean turbo;
     
+    
     private Image imagemPlayer;
     private Image imagemObstaculo;
     
