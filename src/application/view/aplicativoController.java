@@ -59,6 +59,11 @@ public class aplicativoController {
     private void abrirCalculadoraMedia() {
     	carregarTela("calcularMedia.fxml");
     }
+    
+    @FXML
+    private void abrirCalcularIdade() {
+    	carregarTela("calcularIdade.fxml");
+    }
 	
 	@FXML
 	private void initialize() {

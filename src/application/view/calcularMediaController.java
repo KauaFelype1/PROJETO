@@ -44,7 +44,7 @@ public class calcularMediaController {
     
     
     @FXML
-    private void Calcular() {
+    public void Calcular() {
     	double n1;
     	double n2;
     	double n3;
@@ -73,7 +73,6 @@ public class calcularMediaController {
     	} else {
     		return "";
     	}	
-    }
-    	
+    }	
 
 }

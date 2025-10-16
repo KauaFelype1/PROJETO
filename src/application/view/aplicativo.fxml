@@ -26,5 +26,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <Button fx:id="btnCalcularIdade" layoutX="35.0" layoutY="454.0" mnemonicParsing="false" onAction="#abrirCalcularIdade" prefHeight="40.0" prefWidth="302.0" text="CALCULAR IDADE">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>
