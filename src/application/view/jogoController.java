@@ -27,8 +27,9 @@ public class jogoController {
     private ArrayList<Obstaculo> obstaculos= new ArrayList();
     private Random random = new Random();
     private boolean esquerda,direita;
-    boolean turbo;
-    
+    private boolean turbo = false;
+    boolean gameOver = false;
+   
     
     private Image imagemPlayer;
     private Image imagemObstaculo;
@@ -71,7 +72,9 @@ public class jogoController {
 			
 			@Override
 			public void handle(long now) {
+				if(!gameOver) {
 				atualizar();
+				}
 				desenhar(gc);
 				long velocidade=1_000_000_000;
 				if(now - ultimoSpaw > intervaloSpaw) {
@@ -100,6 +103,13 @@ public class jogoController {
     	gc.setFill(Color.BLACK);
     	gc.setFont(javafx.scene.text.Font.font(18));
     	gc.fillText("Pontuação "+pontuacao, 10, 20);
+    	
+    	if(gameOver) {
+    		gc.setFill(Color.RED);
+    		gc.setFont(javafx.scene.text.Font.font("Arial",36));
+    		gc.fillText("GAME OVER", larguraTela / 2 - 100, alturaTela / 2 );
+    	}
+    	
     }
     
     private void atualizar() {
@@ -132,8 +142,8 @@ public class jogoController {
     				centroPlayerY <= obsBase;
     			
     		if(colidiu) {
-    			pontuacao=0;
-    			it.remove();
+    			gameOver = true;
+    			return;
     		} else if(obs.y>alturaTela) {
     			pontuacao++;
     			it.remove();

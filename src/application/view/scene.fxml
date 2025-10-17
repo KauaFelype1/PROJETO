@@ -40,5 +40,10 @@
             <Font name="System Bold" size="19.0" />
          </font>
       </Label>
+      <Label fx:id="lblNovoUsuario" layoutX="124.0" layoutY="500.0" prefHeight="26.0" prefWidth="110.0" text="Novo Usuário" textFill="#1a0dcf">
+         <font>
+            <Font size="18.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
