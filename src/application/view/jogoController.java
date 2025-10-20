@@ -1,10 +1,5 @@
 package application.view;
 
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-import java.io.File;
-
-
 import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -148,7 +143,6 @@ public class jogoController {
     				centroPlayerY <= obsBase;
     			
     		if(colidiu) {
-    			tocarSom("gameOver.mp3")
     			gameOver = true;
     			return;
     		} else if(obs.y>alturaTela) {
@@ -172,16 +166,7 @@ public class jogoController {
     	}	
     }
     
-    private void tocarSom(String "gameOver.mp3") {
-        try {
-            String caminho = getClass().getResource("gameOver.mp3.mp3").toExternalForm();
-            Media som = new Media(caminho);
-            MediaPlayer mediaPlayer = new MediaPlayer(som);
-            mediaPlayer.play();
-        } catch (Exception e) {
-            System.out.println("Erro ao tocar som: " + e.getMessage());
-        }
-    }
+
 
     
 }

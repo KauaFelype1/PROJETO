@@ -6,7 +6,7 @@ import java.sql.SQLException;
 
 public class conexao {
 	//ENDEREÇO DO BANCO DE DADOS
-	private static final String URL="jbdc:mysql://localhost:3309/DB";
+	private static final String URL="jdbc:mysql://localhost:3306/db";
 	//USUARIO DO BANCO DE DADOS
 	private static final String USER="root";
 	//SENHA DO BANCO DE DADOS
