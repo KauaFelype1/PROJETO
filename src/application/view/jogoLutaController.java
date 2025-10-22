@@ -29,9 +29,11 @@ public class jogoLutaController {
     private ArrayList<Inimigo> inimigos= new ArrayList();
     private ArrayList<Ataque> ataques= new ArrayList();
     private ArrayList<Spcial> spcials= new ArrayList();
+    private ArrayList<AtaqueInimigo> ataquesinimigos= new ArrayList();
     private Random random = new Random();
     private boolean esquerda,direita;
     private int vida_player = 3;
+    private boolean jogoAtivo = true;
     
     private Image imagemPlayer;
     private Image imagemObstaculo;
@@ -70,10 +72,18 @@ public class jogoLutaController {
 
         AnimationTimer timer = new AnimationTimer() {
             long lastSpawn = 0,lastSpawnTiro=0;
+            long lastSpawAtaqueInimigo=0;
            
 
             @Override
             public void handle(long now) {
+            	if(!jogoAtivo) {
+            		gc.setFill(Color.RED);
+            		gc.setFont(javafx.scene.text.Font.font(36));
+            		gc.fillText("GAME OVER", larguraTela/4, 300);
+            		stop();
+            		return;
+            	}
                 atualizar();
                 desenhar(gc);
 
@@ -82,6 +92,14 @@ public class jogoLutaController {
                     inimigos.add(new Inimigo(random.nextInt((int) larguraTela - 40), -40));
                     lastSpawn = now;
                 }
+                
+                if(now - lastSpawAtaqueInimigo > 1_500_000_000) {
+                	for(Inimigo inimigo: inimigos) {
+                		ataquesinimigos.add(new AtaqueInimigo(inimigo.x + inimigo.largura / 2, inimigo.y + inimigo.altura));
+                	}
+                	lastSpawAtaqueInimigo = now;
+                }
+                
                /*
                 if (now - lastSpawnTiro > 100_000_000) {
                     // obstaculos.add(new Obstaculo((larguraTela - 40) / 2, -40)); // obstáculo centralizado
@@ -105,6 +123,16 @@ public class jogoLutaController {
         while (itObs.hasNext()) {
             Inimigo obs = itObs.next();
             obs.y += 4;
+            
+            if (Math.abs(obs.x - playerX) < raio * 2 && Math.abs(obs.y - playerY) < raio * 2) {
+                vida_player--;
+                itObs.remove();
+
+                if (vida_player <= 0) {
+                    jogoAtivo = false;
+                }
+            }
+
 
             if (obs.y > alturaTela) {
                 itObs.remove();
@@ -136,10 +164,40 @@ public class jogoLutaController {
                     pontuacao++;
                     itObsColisao.remove();
                     itTiro.remove();
+                    
+                    if(pontuacao % 20 ==0) {
+                    	vida_player++;
+                    }
+                    
                     break;
                 }
             }
         }
+        
+     // Atualiza ataques inimigos
+        Iterator<AtaqueInimigo> itAtaqueInimigos = ataquesinimigos.iterator();
+        while (itAtaqueInimigos.hasNext()) {
+            AtaqueInimigo tiro = itAtaqueInimigos.next();
+            tiro.y += tiro.velocidade;
+
+            // Remove tiros que saíram da tela
+            if (tiro.y > alturaTela) {
+                itAtaqueInimigos.remove();
+                continue;
+            }
+
+            // Verifica colisão com o player
+            if (Math.abs(tiro.x - playerX) < raio * 2 && Math.abs(tiro.y - playerY) < raio * 2) {
+                vida_player--;
+                itAtaqueInimigos.remove();
+
+                if (vida_player <= 0) {
+                    jogoAtivo = false;
+                }
+            }
+        }
+
+        
         
      // Atualiza Spcial
         Iterator<Spcial> itSpcial = spcials.iterator();
@@ -165,7 +223,7 @@ public class jogoLutaController {
                 if (colidiu) {
                     pontuacao++;
                     itObsColisao.remove();
-                    itSpcial.remove();
+                   // itSpcial.remove();
                     break;
                 }
             }
@@ -198,6 +256,11 @@ public class jogoLutaController {
         }
         
         gc.setFill(Color.RED);
+        for(AtaqueInimigo ataqueinimigo: ataquesinimigos) {
+        	gc.fillRect(ataqueinimigo.x, ataqueinimigo.y, ataqueinimigo.largura, ataqueinimigo.altura);
+        }
+        
+        gc.setFill(Color.RED);
         for(Spcial spcial: spcials) {
         	gc.fillRect(spcial.x / 2, spcial.y, spcial.largura, spcial.altura);
         }
@@ -205,6 +268,9 @@ public class jogoLutaController {
         gc.setFill(Color.WHITE);
         gc.setFont(javafx.scene.text.Font.font(18));
         gc.fillText("Pontuação: " + pontuacao, 10, 20);
+        
+        gc.fillText("Vida: " + vida_player, 10, 40);
+        
     }
 
     // Classe de obstáculos
@@ -242,6 +308,18 @@ public class jogoLutaController {
         final double altura = 300;
 
         Spcial(double x, double y) {
+            this.x = x;
+            this.y = y;
+        }
+    }
+    
+    class AtaqueInimigo {
+        double x, y;
+        final double largura = 5;
+        final double altura = 10;
+        final double velocidade = 6;
+
+        AtaqueInimigo(double x, double y) {
             this.x = x;
             this.y = y;
         }

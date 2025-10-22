@@ -16,6 +16,7 @@ public class loginContoller {
 	@FXML
     private Label lblNovoUsuario;
 	
+	
 	@FXML
     private PasswordField txtSenha;
 
