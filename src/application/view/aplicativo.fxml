@@ -31,5 +31,10 @@
             <Font name="System Bold" size="18.0" />
          </font>
       </Button>
+      <Button layoutX="38.0" layoutY="524.0" mnemonicParsing="false" onAction="#abrirCarros" prefHeight="40.0" prefWidth="302.0" text="CARROS">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

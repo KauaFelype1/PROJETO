@@ -262,7 +262,7 @@ public class jogoLutaController {
         
         gc.setFill(Color.RED);
         for(Spcial spcial: spcials) {
-        	gc.fillRect(spcial.x / 2, spcial.y, spcial.largura, spcial.altura);
+        	gc.fillRect(spcial.x / 2, spcial.y /2, spcial.largura, spcial.altura);
         }
 
         gc.setFill(Color.WHITE);
