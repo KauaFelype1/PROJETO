@@ -24,12 +24,12 @@ public class carro {
     private TextField txt1;
 	
 	//Scanner entrada = new Scanner(System.in);
-	String Marca1, Marca2, Marca3, Marca4, Marca5;
-	String Nome1, Nome2, Nome3, Nome4, Nome5;
-	String Motor1, Motor2, Motor3, Motor4, Motor5;
-	String Cor1, Cor2, Cor3, Cor4, Cor5;
-	String ano1, ano2, ano3, ano4, ano5;
-	String Modelo1, Modelo2, Modelo3, Modelo4, Modelo5;
+	String Marca1;
+	String Nome1;
+	String Motor1;
+	String Cor1;
+	String ano1;
+	String Modelo1;
 	boolean carroLigado1, carroLigado2, carroLigado3, carroLigado4, carroLigado5;
 	String escolha;
 	
@@ -37,7 +37,7 @@ public class carro {
 	@FXML
 	private void exibirInformacoes() {
 		escolha = txt1.getText();
-		//inicio if e else
+		
 		if(escolha.equalsIgnoreCase("Carro 1") && carroLigado1 == true) {
 			Marca1 = "Chevrolet";
 			Motor1 = "1.4 Flex";
@@ -91,7 +91,7 @@ public class carro {
 		} else {
 			lblIn.setText("Escolha inválida");
 		}
-		// Fim if e else
+		
 		
 	}
 	
@@ -123,7 +123,7 @@ public class carro {
 	
 	@FXML
 	private void desligarCaro() {
-		carroLigado1 = true;
+		carroLigado1 = false;
 		carroLigado2 = false;
 		carroLigado3 = false;
 		carroLigado4 = false;
