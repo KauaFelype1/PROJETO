@@ -79,8 +79,7 @@ public class carro {
 			lblIn.setText("Marca: "+Marca1+", Motor: "+Motor1+", Cor: "+Cor1+", Ano: "+ano1+", Modelo: "+Modelo1+". O carro está ligado.");
 
 		} else if(carroLigado1 == false) {
-			lblIn.setText("Carro deligado!");
-			
+			lblIn.setText("Carro deligado!!");	
 		} else if(carroLigado2 == false) {
 			lblIn.setText("Carro desligado!!");
 		} else if(carroLigado3 == false) {
